@@ -3,12 +3,12 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 import { TextInput, View, Button } from 'react-native';
 
-import { userInfo } from '../util/types';
+import { UserInfo } from '../types/user';
 
-export interface ILoginForm {}
+export interface LoginForm {}
 
-const LoginForm: React.FC<ILoginForm> = () => {
-  const [userInfo, setUserInfo] = useState<userInfo>({
+const LoginForm: React.FC<LoginForm> = () => {
+  const [userInfo, setUserInfo] = useState<UserInfo>({
     email: '',
     password: '',
   });
@@ -24,20 +24,17 @@ const LoginForm: React.FC<ILoginForm> = () => {
   return (
     <View>
       <TextInput
-        placeholder='email'
+        placeholder="email"
         onChangeText={(email: string) => setUserInfo({ ...userInfo, email })}
       />
       <TextInput
-        placeholder='password'
+        placeholder="password"
         secureTextEntry
         onChangeText={(password: string) =>
           setUserInfo({ ...userInfo, password })
         }
       />
-      <Button
-        title='Sign In'
-        onPress={() => onSignUp()}
-      />
+      <Button title="Sign In" onPress={() => onSignUp()} />
     </View>
   );
 };

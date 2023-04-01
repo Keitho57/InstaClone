@@ -63,20 +63,14 @@ const App = () => {
   if (!loggedIn) {
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Landing'>
+        <Stack.Navigator initialRouteName="Landing">
           <Stack.Screen
-            name='Landing'
+            name="Landing"
             component={Landing}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name='Register'
-            component={Register}
-          />
-          <Stack.Screen
-            name='Login'
-            component={Login}
-          />
+          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
     );
