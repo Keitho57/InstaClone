@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { View, Text } from 'react-native';
+
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
-import { View, Text } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './redux/reducers';
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,6 +17,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Landing from './pages/auth/Landing';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
+import Main from './pages/Main';
 
 import {
   APIKEY,
@@ -77,9 +85,9 @@ const App = () => {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center' }}>
-      <Text>User is logged in </Text>
-    </View>
+    <Provider store={store}>
+      <Main />
+    </Provider>
   );
 };
 export default App;

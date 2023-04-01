@@ -15,6 +15,7 @@ export function fetchUser() {
             type: CONSTANTS.USER_STATE_CHANGE,
             currentUser: snapshot.data(),
           };
+          console.log('snapshot', snapshot);
           dispatch(action);
         } else {
           console.log('No such document!');

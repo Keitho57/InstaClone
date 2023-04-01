@@ -1,11 +1,10 @@
-
 const initialState = {
-  currentUser: null
-}
+  currentUser: null,
+};
 
 export const user = (state = initialState, action: any) => {
   return {
     ...state,
-    currentUser: action.currentUser
-  }
-}
+    currentUser: action.currentUser,
+  };
+};
