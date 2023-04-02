@@ -5,19 +5,16 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './redux/reducers';
-import thunk from 'redux-thunk';
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
+import { store } from './redux/app/store';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Landing from './pages/auth/Landing';
-import Register from './pages/auth/Register';
-import Login from './pages/auth/Login';
-import Main from './pages/Main';
+import Landing from './screens/auth/Landing';
+import RegisterScreen from './screens/auth/RegisterScreen';
+import LoginScreen from './screens/auth/LoginScreen';
+import MainScreen from './screens/MainScreen';
+import AddScreen from './screens/main/AddScreen';
 
 import {
   APIKEY,
@@ -77,8 +74,8 @@ const App = () => {
             component={Landing}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     );
@@ -86,7 +83,20 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Main />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Main">
+          <Stack.Screen
+            name="Main"
+            component={MainScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Add"
+            component={AddScreen}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 };

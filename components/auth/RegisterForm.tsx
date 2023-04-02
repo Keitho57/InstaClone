@@ -4,7 +4,7 @@ import { doc, getFirestore, setDoc } from 'firebase/firestore';
 
 import { TextInput, View, Button } from 'react-native';
 
-import { UserInfo } from '../types/user';
+import { UserInfo } from '../../types/user';
 
 export interface RegisterForm {}
 

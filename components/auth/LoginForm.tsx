@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-
 import { TextInput, View, Button } from 'react-native';
 
-import { UserInfo } from '../types/user';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+
+import { UserInfo } from '../../types/user';
 
 export interface LoginForm {}
 
