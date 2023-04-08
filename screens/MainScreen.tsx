@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 
 import { useAppSelector, useAppDispatch } from '../redux/app/hooks';
 import { getUser } from '../redux/features/user/userSlice';
@@ -23,8 +23,9 @@ const MainScreen = () => {
   useEffect(() => {
     dispatch(getUser());
   }, []);
+
   if (loading === 'pending') {
-    return <Text>LOADIAFNLJFKLAS</Text>;
+    return <Text>LOADING MAIN</Text>;
   }
   return (
     <Tab.Navigator initialRouteName="Feed" labeled={false}>

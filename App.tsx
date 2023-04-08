@@ -13,8 +13,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Landing from './screens/auth/Landing';
 import RegisterScreen from './screens/auth/RegisterScreen';
 import LoginScreen from './screens/auth/LoginScreen';
-import MainScreen from './screens/MainScreen';
+import SaveScreen from './screens/main/SaveScreen';
 import AddScreen from './screens/main/AddScreen';
+import MainScreen from './screens/MainScreen';
 
 import {
   APIKEY,
@@ -90,11 +91,8 @@ const App = () => {
             component={MainScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="Add"
-            component={AddScreen}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name="Add" component={AddScreen} />
+          <Stack.Screen name="Save" component={SaveScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
